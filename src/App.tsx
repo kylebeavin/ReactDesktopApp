@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import { MainNav } from './components/Nav';
-import ContactList from './components/ContactList';
+import PageTitleArea from './components/PageTitleArea';
+import CRMTabView from './components/CRMTabView';
 
 //Bootstrap Imports
 import Container from 'react-bootstrap/Container';
 
 
-export const App = () => {
-  return (
-    <div className="App">
-      <Container fluid="md">
-        <MainNav />
-        <ContactList />
-      </Container>
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Container fluid>
+          <MainNav />
+          <PageTitleArea />
+          <CRMTabView />
+        </Container>
+      </div>
+    );
+  }
 }
-
-export default App;
