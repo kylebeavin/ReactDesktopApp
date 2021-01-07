@@ -1,7 +1,7 @@
 import React from 'react';
 import AccountList from './AccountList';
 import AccountListButtons from './AccountListButtons';
-import CalendarView from './CalendarView';
+import CalendarView from '../CalendarView';
 
 //Bootstrap Imports
 import Row from 'react-bootstrap/Row';

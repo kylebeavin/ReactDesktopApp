@@ -19,7 +19,7 @@ const AccountList = () => {
             </Form.Group></th>
             <th>Name</th>
             <th>Email</th>
-            <th>Owner</th>
+            {/* <th>Owner</th> */}
             <th>Stage</th>
           </tr>
         </thead>

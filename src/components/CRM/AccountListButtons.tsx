@@ -1,12 +1,10 @@
 import React from 'react';
-
-
+import FilterButtons from './FilterButtons';
 //Bootstrap Imports
 import Button from 'react-bootstrap/Button';
 
 //Icons
-import { BiSliderAlt } from 'react-icons/bi';
-import { MdAddBox, MdClose } from 'react-icons/md';
+import { MdAddBox, } from 'react-icons/md';
 
 const AccountListButtons = () => {
     return (
@@ -17,10 +15,9 @@ const AccountListButtons = () => {
             <Button className="ListButton" variant="outline-success" size="sm"><MdAddBox></MdAddBox>Add View</Button>
             <Button className="ListButton" variant="success" size="sm">Schedule Demo</Button>
             <br />
-            <Button className="ListButton" variant="outline-info" size="sm"><BiSliderAlt></BiSliderAlt>Filter</Button>
+            <FilterButtons />
             {/* Temporary placeholder Code below */}
-            <Button className="ListButtonFilter" variant="info" size="sm"><MdClose></MdClose>Filter 1</Button>
-            <Button className="ListButtonFilter" variant="info" size="sm"><MdClose></MdClose>Filter 2</Button>
+
             <br />
             <br />
             <br />

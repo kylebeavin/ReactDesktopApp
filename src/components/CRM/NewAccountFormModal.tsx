@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useForm from '../utils/useForm';
+// import useForm from '../utils/useForm';
 //Bootstrap Imports
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -16,12 +16,12 @@ const NewAccountFormModal = () => {
     // }
 
     // eslint-disable-next-line no-empty-pattern
-    const [values, handleChange] = useForm();
-    const register = (e: any) => {
-        e.persist();
-        e.preventDefault();
-        console.log(values);
-    }
+    // const [values, handleChange] = useForm();
+    // const register = (e: any) => {
+    //     e.persist();
+    //     e.preventDefault();
+    //     console.log(values);
+    // }
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -35,7 +35,7 @@ const NewAccountFormModal = () => {
                         // onChange={handleChange}
                         type="text"
                         name="name"
-                        placeholder="Name..."
+                        placeholder="Account Name"
                         className="" />
                 </form>
             </Modal.Body>

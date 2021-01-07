@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const instance = axios.create({
+const baseInstance = axios.create({
     baseURL: "https://smash-app-backend.herokuapp.com/api"
 })
 
-export default instance;
+export default baseInstance;

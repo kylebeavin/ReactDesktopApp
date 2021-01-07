@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SearchInput from './SearchInput';
-import useForm from '../utils/useForm';
+// import useForm from '../../utils/useForm';
 // import NewAccountFormModal from './NewAccountFormModal';
 
 
@@ -27,12 +27,11 @@ const PageTitleArea = () => {
     // }
 
     // eslint-disable-next-line no-empty-pattern
-    const [values, handleChange] = useForm();
-    const register = (e: any) => {
-        e.persist();
-        e.preventDefault();
-        console.log(values);
-    }
+    // const [values, handleChange] = useForm();
+    // const register = (e: any) => {
+    //     e.preventDefault();
+    //     console.log(values);
+    // }
     return (
         <section>
             <Row>
@@ -61,7 +60,7 @@ const PageTitleArea = () => {
                         <Form.Row>
                             <Form.Group controlId="formGridName">
                                 <Form.Label>Name</Form.Label>
-                                <Form.Control placeholder="Name..." />
+                                <Form.Control placeholder="Account Name" />
                             </Form.Group>
                         </Form.Row>
                         <Form.Row>
@@ -73,9 +72,8 @@ const PageTitleArea = () => {
                         <Form.Row>
                             <Form.Group controlId="formGridOwner">
                                 <Form.Label>Owner</Form.Label>
-                                <Form.Control as="select" defaultValue="Owner...">
+                                <Form.Control as="select" defaultValue="Owner..." readOnly>
                                     <option>Choose...</option>
-                                    <option>...</option>
                                 </Form.Control>
                             </Form.Group>
                         </Form.Row>
@@ -84,6 +82,9 @@ const PageTitleArea = () => {
                                 <Form.Label>Stage</Form.Label>
                                 <Form.Control as="select" defaultValue="Stage...">
                                     <option>Choose...</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                    <option>...</option>
                                     <option>...</option>
                                 </Form.Control>
                             </Form.Group>

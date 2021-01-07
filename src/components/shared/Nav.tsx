@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Bootstrap Imports
 import Button from 'react-bootstrap/Button';
@@ -22,10 +23,18 @@ export const MainNav = () => {
           <Button className="FranchiseButton" variant="primary" size="lg">FranchiseName</Button>
         </Col>
         <Col md={5}>
-          <Button className="NavButton" variant="outline-primary" size="sm">CRM</Button>
-          <Button className="NavButton" variant="outline-primary" size="sm">Services</Button>
-          <Button className="NavButton" variant="outline-primary" size="sm">Routes</Button>
-          <Button className="NavButton" variant="outline-primary" size="sm">Invoices</Button>
+          <Link to='/'>
+            <Button className="NavButton" variant="outline-primary" size="sm">CRM</Button>
+          </Link>
+          <Link to='/services'>
+            <Button className="NavButton" variant="outline-primary" size="sm">Services</Button>
+          </Link>
+          <Link to='/routes'>
+            <Button className="NavButton" variant="outline-primary" size="sm">Routes</Button>
+          </Link>
+          <Link to='/invoices'>
+            <Button className="NavButton" variant="outline-primary" size="sm">Invoices</Button>
+          </Link>
         </Col>
         <Col md={2}>
           <div className="RightNav">
