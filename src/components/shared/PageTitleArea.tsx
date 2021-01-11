@@ -6,6 +6,7 @@ import SearchInput from './SearchInput';
 
 
 //Bootstrap Imports
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BsQuestionCircleFill } from 'react-icons/bs';
@@ -14,7 +15,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
 
-const PageTitleArea = () => {
+const PageTitleArea = ({ title }: any) => {
     const handleShow = () => setShow(true);
     const [show, setShow] = useState(false);
 
@@ -33,11 +34,11 @@ const PageTitleArea = () => {
     //     console.log(values);
     // }
     return (
-        <section>
-            <Row>
+        <Container fluid className="containerFluid">
+            <Row className="noMarginRight">
                 <Col md={2}>
                     <div className="PageTitle">
-                        <h1>CRM</h1>
+                        <h1>{title}</h1>
                     </div>
                 </Col>
                 <Col>
@@ -47,6 +48,7 @@ const PageTitleArea = () => {
                     <SearchInput />
                 </Col>
                 <Col md={2}>
+                    {/*Conditional for Create Buttons needed*/}
                     <Button className="CreateNewButton" variant="success" size="lg" onClick={handleShow}>New Account</Button>
                 </Col>
             </Row>
@@ -71,8 +73,8 @@ const PageTitleArea = () => {
                         </Form.Row>
                         <Form.Row>
                             <Form.Group controlId="formGridOwner">
-                                <Form.Label>Owner</Form.Label>
-                                <Form.Control as="select" defaultValue="Owner..." readOnly>
+                                <Form.Label>Created By</Form.Label>
+                                <Form.Control as="select" defaultValue="Created BY..." readOnly>
                                     <option>Choose...</option>
                                 </Form.Control>
                             </Form.Group>
@@ -81,10 +83,10 @@ const PageTitleArea = () => {
                             <Form.Group controlId="formGridStage">
                                 <Form.Label>Stage</Form.Label>
                                 <Form.Control as="select" defaultValue="Stage...">
-                                    <option>Choose...</option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                    <option>...</option>
+                                    <option className="grayBG">Choose...</option>
+                                    <option>Active</option>
+                                    <option>Lead</option>
+                                    <option>Prospect</option>
                                     <option>...</option>
                                 </Form.Control>
                             </Form.Group>
@@ -100,7 +102,7 @@ const PageTitleArea = () => {
           </Button>
                 </Modal.Footer>
             </Modal>
-        </section>
+        </Container>
 
 
     )

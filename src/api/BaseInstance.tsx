@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+
 const baseInstance = axios.create({
-    baseURL: "https://smash-app-backend.herokuapp.com/api"
+    baseURL: process.env.REACT_APP_BASE_URL,
 })
+
 
 export default baseInstance;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Account from './Account';
+import Meeting from './Meeting';
 //Bootstrap Imports
 import Table from 'react-bootstrap/Table';
 // import Form from 'react-bootstrap/Form';
@@ -7,27 +7,30 @@ import Table from 'react-bootstrap/Table';
 
 
 
-const AccountList = () => {
+const MeetingList = () => {
 
   return (
     <Table striped bordered hover >
       <thead>
         <tr>
           <th></th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Stage</th>
-          <th>Adddress</th>
+          <th>Title</th>
+          <th>Time</th>
+          <th>Account</th>
+          <th>Contact</th>
+          <th>Location</th>
+          <th>Address</th>
           <th>Created By</th>
         </tr>
       </thead>
       <tbody>
-        <Account />
+        <Meeting />
       </tbody>
     </Table>
+
   );
 }
 
 
 
-export default AccountList;
+export default MeetingList;

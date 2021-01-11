@@ -5,9 +5,6 @@ import CRM from './pages/CRM/CRM';
 import Services from './pages/Services/Services';
 import Routes from './pages/Routes/Routes';
 import Invoices from './pages/Invoices/Invoices';
-// import { MainNav } from './components/shared/Nav';
-// import PageTitleArea from './components/shared/PageTitleArea';
-// import CRMTabView from './components/CRM/CRMTabView';
 
 //Bootstrap Imports
 import Container from 'react-bootstrap/Container';
@@ -18,9 +15,9 @@ export default class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Container fluid>
-            {/* <MainNav /> */}
+          <Container fluid className="containerFluid">
             <Switch>
+              {/* Home page will need to be dashboard when that pages is discussed and created */}
               <Route path="/" exact component={CRM} />
               <Route path="/services" component={Services} />
               <Route path="/routes" component={Routes} />
