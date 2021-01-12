@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import mockData from '../mockData.json';
-import axios from '../../api/BaseInstance';
+import baseURL from '../../api/BaseInstance';
 
 
 
@@ -24,17 +24,19 @@ interface IAccount {
 export const Account: any = () => {
     const [accounts, setAccounts] = useState([]);
 
-    useEffect(() => {
-        async function fetchData() {
-            const request = await axios.get('/accounts', {
-                headers: {
-                    'x-access-token': process.env.REACT_APP_ACCESS_TOKEN
-                }
-            })
+    async function fetchAccounts() {
+        const request = await baseURL.get('/accounts', {
+            headers: {
+                'x-access-token': process.env.REACT_APP_ACCESS_TOKEN
+            }
+        }).catch((err) => console.log("Error: ", err));
+        if (request && request.data)
             setAccounts(request.data.data);
-            return request;
-        }
-        fetchData();
+        return request;
+    }
+
+    useEffect(() => {
+        fetchAccounts();
     }, [])
     return (
         accounts.map((account: IAccount) => {

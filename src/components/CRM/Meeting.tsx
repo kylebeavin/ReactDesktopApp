@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 // import mockData from '../mockData.json';
-import axios from '../../api/BaseInstance';
+import baseURL from '../../api/BaseInstance';
 
 // //Bootstap Imports
 import Form from 'react-bootstrap/Form';
-// import baseInstance from '../api/BaseInstance';
 
 
 interface IMeeting {
@@ -23,17 +22,20 @@ interface IMeeting {
 
 export const Meeting: any = () => {
     const [meetings, setMeetings] = useState([]);
-    useEffect(() => {
-        async function fetchData() {
-            const request = await axios.get('/meetings', {
-                headers: {
-                    'x-access-token': process.env.REACT_APP_ACCESS_TOKEN
-                }
-            })
+
+    async function fetchMeetings() {
+        const request = await baseURL.get('/meetings', {
+            headers: {
+                'x-access-token': process.env.REACT_APP_ACCESS_TOKEN
+            }
+        }).catch((err) => console.log("Error: ", err));
+        if (request && request.data)
             setMeetings(request.data.data);
-            return request;
-        }
-        fetchData();
+        return request;
+    }
+
+    useEffect(() => {
+        fetchMeetings();
     }, [])
 
     // fetch(`https://smash-app-backend.herokuapp.com/api/meetings`)
