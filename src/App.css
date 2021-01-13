@@ -2,6 +2,17 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html{
+  min-height:100%;/* make sure it is at least as tall as the viewport */
+  position:relative;
+  margin: 0;
+}
+
+body{
+  height:100%; /* force the BODY element to match the height of the HTML element */
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -30,7 +41,7 @@
 
 .Nav {
   padding: 1rem;
-  background-color: #e3e3e3;
+  background-color: #101820;
 }
 
 .LeftNav {
@@ -54,6 +65,8 @@
   max-width: 350px;
   width: 80%;
   font-weight: bold;
+  background-color: #830000;
+  border-color: #830000;
 }
 
 .NavButton {
@@ -61,7 +74,9 @@
   width: 100%;
   font-weight: bold;
   margin: .6rem 1rem;
-  background-color: #fff;
+  background-color: #830000;
+  border-color: #830000;
+  color: #ffffff;
 }
 
 .RightNav {
@@ -77,6 +92,17 @@
 }
 
 /*Hover effects*/
+
+.FranchiseButton:hover {
+  background-color: #e60000;
+  border-color: #e60000;
+}
+
+.NavButton:hover {
+  background-color: #e60000;
+  border-color: #e60000;
+}
+
 .LeftNav:hover {
   cursor: pointer;
 }
@@ -96,6 +122,13 @@
   cursor: pointer;
   color: purple;
 }
+
+.CreateNewButton:hover {
+  background-color: #005ccc;
+  border-color: #005ccc;
+}
+
+/*End Hover Effects*/
 
 hr {
   border: 1px solid lightgray;
@@ -118,6 +151,8 @@ hr {
 .CreateNewButton {
   margin-top: 1rem;
   display: block;
+  background-color: #003069;
+  border-color: #003069;
 }
 
 /****Hover Effects*****/
@@ -137,6 +172,43 @@ hr {
   float: right;
 }
 
+/*accountModal*/
+
+/* .modal {
+margin:auto;
+width: 23%;
+} */
+
+.accountModal {
+  position: fixed;
+  max-width: 23%;
+  height: 100% !important;
+  min-height:100% !important;
+  margin-left: 77%;
+  overflow:hidden;
+}
+
+.newAccountHeader {
+  background-color: #830000;
+  color: #ffffff;
+}
+
+.close {
+  color: #ffffff;
+  opacity: 100;
+}
+
+.close:hover {
+color: #ffffff;
+transform: scale(1.2);
+opacity: 100 !important;
+}
+
+.formNote {
+  font-size: 10px;
+  color: #888888
+}
+
 .ListButtonContainer {
   background-color: #e3e3e3;
   height: 100%;
@@ -151,6 +223,10 @@ hr {
 .nav-link.active {
   background-color: #e3e3e3 !important;
   border: none;
+}
+
+.nav-link {
+  color: #000000;
 }
 
 .ListButton {
