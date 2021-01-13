@@ -16,7 +16,6 @@ export const MainNav = () => {
         <Col md={2}>
           <div className="LeftNav">
             <MdSettings size={40} className="SettingsGear" />
-            <span>Settings</span>
           </div>
         </Col>
         <Col md={3}>
@@ -39,7 +38,6 @@ export const MainNav = () => {
         <Col md={2}>
           <div className="RightNav">
             <MdAccountCircle size={40} className="DashboardIcon" />
-            <span>Dashboard</span>
           </div>
         </Col>
       </Row>
