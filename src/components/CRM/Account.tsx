@@ -51,7 +51,7 @@ export const Account: any = () => {
                     <td>{account.stage}</td>
                     <td>{account.address_street}
                         <br />
-                        {account.address_city},{account.address_state} {account.address_zip}</td>
+                        {account.address_city}, {account.address_state} {account.address_zip}</td>
                     <td>{account.owner_id}</td>
                 </tr >
             )
