@@ -1,62 +1,59 @@
-import React, { useState, useEffect } from 'react';
-// import mockData from '../mockData.json';
-import baseURL from '../../api/BaseInstance';
-
-
+import React from 'react';
+import { connect } from 'react-redux';
+import { IAccount, fetchAccounts } from '../../actions';
+import { StoreState } from '../../reducers';
 
 // //Bootstap Imports
 import Form from 'react-bootstrap/Form';
-// import baseInstance from '../api/BaseInstance';
 
-
-interface IAccount {
-    _id: string;
-    name: string;
-    email: string;
-    stage: string;
-    owner_id: string;
-    address_street: string;
-    address_city: string;
-    address_state: string;
-    address_zip: string;
+interface IAccountProps {
+  accounts: IAccount[];
+  fetchAccounts: Function;
 }
 
-export const Account: any = () => {
-    const [accounts, setAccounts] = useState([]);
+class _Account extends React.Component<IAccountProps> {
+  componentDidMount() {
+    this.props.fetchAccounts();
+  }
+  renderAccountList(): JSX.Element[] {
+    return this.props.accounts.map((account: IAccount) => {
+      return (
+        <tr key={account._id}>
+          <td>
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" />
+            </Form.Group>
+          </td>
+          <td>{account.account_name}</td>
+          {account.email ? (
+            <td>{account.email}</td>
+          ) : (
+            <td className="notrequired">Not Required in current stage</td>
+          )}
+          <td>{account.stage}</td>
+          {account.address_street ? (
+            <td>
+              {account.address_street}
+              <br />
+              {account.address_city}, {account.address_state}{' '}
+              {account.address_zip}
+            </td>
+          ) : (
+            <td className="notrequired">Not Required in current stage</td>
+          )}
+          <td>{account.owner_name}</td>
+        </tr>
+      );
+    });
+  }
 
-    async function fetchAccounts() {
-        const request = await baseURL.get('/accounts', {
-            headers: {
-                'x-access-token': process.env.REACT_APP_ACCESS_TOKEN
-            }
-        }).catch((err) => console.log("Error: ", err));
-        if (request && request.data)
-            setAccounts(request.data.data);
-        return request;
-    }
-
-    useEffect(() => {
-        fetchAccounts();
-    }, [])
-    return (
-        accounts.map((account: IAccount) => {
-
-            return (
-                <tr key={account._id}>
-                    <td><Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" />
-                    </Form.Group></td>
-                    <td>{account.name}</td>
-                    <td>{account.email}</td>
-                    <td>{account.stage}</td>
-                    <td>{account.address_street}
-                        <br />
-                        {account.address_city}, {account.address_state} {account.address_zip}</td>
-                    <td>{account.owner_id}</td>
-                </tr >
-            )
-        })
-    )
+  render() {
+    return this.renderAccountList();
+  }
 }
 
-export default Account;
+const mapStateToProps = (state: StoreState): { accounts: IAccount[] } => {
+  return { accounts: state.accounts };
+};
+
+export const Account = connect(mapStateToProps, { fetchAccounts })(_Account);

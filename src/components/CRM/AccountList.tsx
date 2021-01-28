@@ -1,16 +1,13 @@
 import React from 'react';
-import Account from './Account';
+import { Account } from './Account';
+
 //Bootstrap Imports
 import Table from 'react-bootstrap/Table';
 // import Form from 'react-bootstrap/Form';
 
-
-
-
 const AccountList = () => {
-
   return (
-    <Table striped bordered hover >
+    <Table striped bordered hover>
       <thead>
         <tr>
           <th></th>
@@ -26,8 +23,5 @@ const AccountList = () => {
       </tbody>
     </Table>
   );
-}
-
-
-
+};
 export default AccountList;

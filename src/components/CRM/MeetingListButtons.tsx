@@ -4,7 +4,7 @@ import FilterButtons from './FilterButtons';
 import Button from 'react-bootstrap/Button';
 
 //Icons
-import { MdAddBox, } from 'react-icons/md';
+import { MdAddBox } from 'react-icons/md';
 
 const MeetingListButtons = () => {
     return (
@@ -17,7 +17,6 @@ const MeetingListButtons = () => {
             <br />
             <FilterButtons />
             {/* Temporary placeholder Code below */}
-
             <br />
             <br />
             <br />

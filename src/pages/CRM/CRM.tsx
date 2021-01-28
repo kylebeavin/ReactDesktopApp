@@ -7,7 +7,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 
 const CRM = () => {
-    // console.log(process.env.REACT_APP_ACCESS_TOKEN)
+
     return (
         <Container fluid className="containerFluid">
             <MainNav />
