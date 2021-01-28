@@ -2,14 +2,14 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-html{
-  min-height:100%;/* make sure it is at least as tall as the viewport */
-  position:relative;
+html {
+  min-height: 100%; /* make sure it is at least as tall as the viewport */
+  position: relative;
   margin: 0;
 }
 
-body{
-  height:100%; /* force the BODY element to match the height of the HTML element */
+body {
+  height: 100%; /* force the BODY element to match the height of the HTML element */
   margin: 0;
 }
 
@@ -57,8 +57,8 @@ body{
 
 .SettingsGear {
   color: #e60000;
-   margin: auto;
-   display: block;
+  margin: auto;
+  display: block;
 }
 
 .FranchiseButton {
@@ -66,16 +66,16 @@ body{
   width: 80%;
   font-weight: bold;
   background-color: #830000;
-  border-color:  #e60000;
+  border-color: #e60000;
 }
 
 .NavButton {
   max-width: 110px;
   width: 100%;
   font-weight: bold;
-  margin: .6rem 1rem;
+  margin: 0.6rem 1rem;
   background-color: #830000;
-  border-color:  #e60000;
+  border-color: #e60000;
   color: #ffffff;
 }
 
@@ -86,7 +86,7 @@ body{
 }
 
 .DashboardIcon {
-  color:  #e60000;
+  color: #e60000;
   margin: auto;
   display: block;
 }
@@ -178,12 +178,15 @@ hr {
 margin:auto;
 width: 23%;
 } */
+.modal-dialog {
+  margin: 0;
+}
 
 .accountModal {
   position: fixed;
   max-width: 23%;
   height: 100% !important;
-  min-height:100% !important;
+  min-height: 100% !important;
   margin-left: 77%;
   overflow: hidden;
 }
@@ -199,22 +202,39 @@ width: 23%;
 }
 
 .close:hover {
-color: #ffffff;
-transform: scale(1.2);
-opacity: 100 !important;
+  color: #ffffff;
+  transform: scale(1.2);
+  opacity: 100 !important;
 }
 
 .formNote {
   font-size: 10px;
-  color: #888888
+  color: #888888;
 }
+
+label {
+  font-size: 12px;
+}
+
+.form-control {
+  font-size: 13px;
+}
+
+.custom-select {
+  font-size: 13px;
+}
+
+/* .btn {
+  font-size: 0.8rem;
+} */
 
 .ListButtonContainer {
   background-color: #e3e3e3;
-  height: 100%;
-  margin: 0 0 0 .95rem;
+  height: 80vh;
+  margin: 0 0 0 0.95rem;
   padding: 1rem;
   display: grid;
+  max-height: 80vh;
 }
 .nav-tabs {
   font-size: 20px;
@@ -231,10 +251,11 @@ opacity: 100 !important;
 
 .ListButton {
   display: block;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
   font-size: 20px;
   max-width: 200px;
   width: 100%;
+  max-height: 45px;
 }
 
 .ListButtonFilter {
@@ -256,10 +277,18 @@ opacity: 100 !important;
 .CalendarButtonContainer {
   background-color: #e3e3e3;
   height: 100%;
-  margin: 0 0 0 .95rem;
+  margin: 0 0 0 0.95rem;
   padding: 1rem;
 }
 
+td {
+  text-align: center;
+  vertical-align: middle !important;
+}
+.notrequired {
+  color: #b3b3b3;
+  font-size: 11px;
+}
 
 /***React Calendar***/
 .react-calendar {

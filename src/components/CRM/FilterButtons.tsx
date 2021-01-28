@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 //Bootstrap Imports
 import Button from 'react-bootstrap/Button';
 import { BiSliderAlt } from 'react-icons/bi';
