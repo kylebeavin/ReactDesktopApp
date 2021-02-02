@@ -6,7 +6,9 @@ export const accountsReducer = (
 ) => {
   switch (action.type) {
     case ActionTypes.fetchAccounts:
-      return action.payload;
+      return action.payload.filter(function (filteredAccounts) {
+        return filteredAccounts.stage === 'account';
+      });
     default:
       return state;
   }

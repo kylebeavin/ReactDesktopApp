@@ -1,8 +1,8 @@
 import React from 'react';
-import AccountList from './AccountList';
-import AccountListButtons from './AccountListButtons';
-import MeetingListButtons from './MeetingListButtons';
-import MeetingList from './MeetingList';
+import AccountList from '../CRM/AccountList';
+import AccountListButtons from '../CRM/AccountListButtons';
+import MeetingListButtons from '../CRM/MeetingListButtons';
+import MeetingList from '../CRM/MeetingList';
 
 //Bootstrap Imports
 import Row from 'react-bootstrap/Row';
@@ -13,10 +13,10 @@ import Tab from 'react-bootstrap/Tab';
 //Icons
 import { MdList } from 'react-icons/md';
 
-const CRMTabView = () => {
+const InvoicesTabView = () => {
   const ListTabTitle = (
     <React.Fragment>
-      <MdList></MdList> Accounts
+      <MdList></MdList> List
     </React.Fragment>
   );
 
@@ -32,7 +32,7 @@ const CRMTabView = () => {
           </Col>
         </Row>
       </Tab>
-      <Tab eventKey="meetings" title="Meetings">
+      <Tab eventKey="meetings" title="Invoices">
         <Row>
           <Col className="NoPadding" md={2}>
             <MeetingListButtons />
@@ -51,4 +51,4 @@ const CRMTabView = () => {
   );
 };
 
-export default CRMTabView;
+export default InvoicesTabView;
