@@ -17,6 +17,9 @@ class _Account extends React.Component<IAccountProps> {
   }
   renderAccountList(): JSX.Element[] {
     return this.props.accounts.map((account: IAccount) => {
+      const stageName = `${account.stage
+        .charAt(0)
+        .toUpperCase()}${account.stage.slice(1)}`;
       return (
         <tr key={account._id}>
           <td>
@@ -30,7 +33,7 @@ class _Account extends React.Component<IAccountProps> {
           ) : (
             <td className="notrequired">Not Required in current stage</td>
           )}
-          <td>{account.stage}</td>
+          <td>{stageName}</td>
           {account.address_street ? (
             <td>
               {account.address_street}

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { accountsReducer } from './accounts';
+import { accountsReducer } from './accountsReducer';
 import { IAccount } from '../actions';
 
 export interface StoreState {
