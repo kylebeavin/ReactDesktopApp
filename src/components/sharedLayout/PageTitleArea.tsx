@@ -1,7 +1,5 @@
 import React from 'react';
 import SearchInput from './SearchInput';
-// import useForm from '../../utils/useForm';
-// import NewAccountFormModal from './NewAccountFormModal';
 
 //Bootstrap Imports
 import Container from 'react-bootstrap/Container';
@@ -11,7 +9,11 @@ import { BsQuestionCircleFill } from 'react-icons/bs';
 import NewAccountForm from '../CRM/NewAccountForm';
 // import Modal from 'react-bootstrap/Modal';
 
-const PageTitleArea = ({ title }: any) => {
+interface ITitle {
+  title: string;
+}
+
+const PageTitleArea = ({ title }: ITitle) => {
   return (
     <Container fluid className="containerFluid">
       <Row className="noMarginRight">
