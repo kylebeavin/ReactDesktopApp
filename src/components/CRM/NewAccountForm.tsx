@@ -9,19 +9,21 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const NewAccountForm = () => {
-  const [show, setShow] = useState(false);
-  const [formData, setFormData] = useState({});
+//New Account Form
 
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+const NewAccountForm = () => {
+  const [showAccount, setShowAccount] = useState(false);
+  const [accountFormData, setAccountFormData] = useState({});
+
+  const handleShowAccount = () => setShowAccount(true);
+  const handleCloseAccount = () => setShowAccount(false);
 
   const handleChange = (e: any) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setAccountFormData({ ...accountFormData, [e.target.name]: e.target.value });
   };
   const addAccount = async () => {
     const response = await baseURL
-      .post('/accounts', formData, {
+      .post('/accounts', accountFormData, {
         headers: {
           'x-access-token': process.env.REACT_APP_ACCESS_TOKEN,
         },
@@ -30,7 +32,7 @@ const NewAccountForm = () => {
         console.log('Error: ', err);
       });
     if (response) {
-      handleClose();
+      handleCloseAccount();
     }
   };
 
@@ -40,11 +42,15 @@ const NewAccountForm = () => {
         className="CreateNewButton"
         variant="success"
         size="lg"
-        onClick={handleShow}
+        onClick={handleShowAccount}
       >
         New Account
       </Button>
-      <Modal show={show} onHide={handleClose} className="accountModal">
+      <Modal
+        show={showAccount}
+        onHide={handleCloseAccount}
+        className="accountModal"
+      >
         <Modal.Header closeButton className="newAccountHeader">
           <Modal.Title>New Account</Modal.Title>
         </Modal.Header>
@@ -280,7 +286,7 @@ const NewAccountForm = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleCloseAccount}>
             Close
           </Button>
           <Button variant="primary" onClick={addAccount}>

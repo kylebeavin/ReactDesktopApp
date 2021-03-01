@@ -6,7 +6,8 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 import CRM from './pages/CRM/CRM';
 import Services from './pages/Services/Services';
 import Routes from './pages/Routes/Routes';
@@ -20,21 +21,23 @@ import Container from 'react-bootstrap/Container';
 export default class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Container fluid className="containerFluid">
-            <Switch>
-              <Redirect exact from="/" to="dashboard" />
-              <Route path="/dashboard" component={Dashboard} />
-              <Route path="/crm" exact component={CRM} />
-              <Route path="/services" component={Services} />
-              <Route path="/routes" component={Routes} />
-              <Route path="/invoices" component={Invoices} />
-              <Route path="/login" component={Login} />
-            </Switch>
-          </Container>
-        </div>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Container fluid className="containerFluid">
+              <Switch>
+                <Redirect exact from="/" to="dashboard" />
+                <Route path="/dashboard" component={Dashboard} />
+                <Route path="/crm" component={CRM} />
+                <Route path="/services" component={Services} />
+                <Route path="/routes" component={Routes} />
+                <Route path="/invoices" component={Invoices} />
+                <Route path="/login" component={Login} />
+              </Switch>
+            </Container>
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }

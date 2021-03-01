@@ -1,8 +1,8 @@
 import React from 'react';
-import AccountList from '../CRM/AccountList';
+import RouteList from '../Routes/RouteList';
 import AccountListButtons from '../CRM/AccountListButtons';
 import MeetingListButtons from '../CRM/MeetingListButtons';
-import MeetingList from '../CRM/MeetingList';
+import TruckList from '../Routes/TruckList';
 
 //Bootstrap Imports
 import Row from 'react-bootstrap/Row';
@@ -16,29 +16,34 @@ import { MdList } from 'react-icons/md';
 const RoutesTabView = () => {
   const ListTabTitle = (
     <React.Fragment>
-      <MdList></MdList> List
+      <MdList></MdList> Routes
     </React.Fragment>
   );
 
   return (
     <Tabs defaultActiveKey="list" transition={false} id="noanim-tab-example">
-      <Tab className="ContactListTab" eventKey="list" title={ListTabTitle}>
+      <Tab
+        className="ContactListTab"
+        eventKey="list"
+        title={ListTabTitle}
+        pageTitle="Routes"
+      >
         <Row>
           <Col className="NoPadding" md={2}>
             <AccountListButtons />
           </Col>
           <Col md={10}>
-            <AccountList />
+            <RouteList />
           </Col>
         </Row>
       </Tab>
-      <Tab eventKey="meetings" title="Routes">
+      <Tab eventKey="trucks" title="Trucks" pageTitle="Trucks">
         <Row>
           <Col className="NoPadding" md={2}>
             <MeetingListButtons />
           </Col>
           <Col md={10}>
-            <MeetingList />
+            <TruckList />
           </Col>
         </Row>
       </Tab>

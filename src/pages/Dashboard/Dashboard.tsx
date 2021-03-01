@@ -1,6 +1,6 @@
 import React from 'react';
-import { MainNav } from '../../components/shared/Nav';
-import PageTitleArea from '../../components/shared/PageTitleArea';
+import { MainNav } from '../../components/sharedLayout/Nav';
+import PageTitleArea from '../../components/sharedLayout/PageTitleArea';
 import Summary from '../../components/Dashboard/Summary';
 import Status from '../../components/Dashboard/Status';
 import IncomeReports from '../../components/Dashboard/IncomeReports';

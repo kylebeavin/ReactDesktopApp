@@ -1,29 +1,28 @@
 import React from 'react';
-import { Meeting } from './Meeting';
+import { Route } from './Route';
+
 //Bootstrap Imports
 import Table from 'react-bootstrap/Table';
 // import Form from 'react-bootstrap/Form';
 
-const MeetingList = () => {
+const RouteList = () => {
   return (
     <Table striped bordered hover>
       <thead>
         <tr>
           <th></th>
-          <th>Title</th>
-          <th>Time</th>
-          <th>Account</th>
-          <th>Contact</th>
-          <th>Location</th>
-          <th>Address</th>
-          <th>Created By</th>
+          <th>Truck</th>
+          <th>Driver</th>
+          <th>Start Location</th>
+          <th>Service Stop</th>
+          <th>Service Time</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
-        <Meeting />
+        <Route />
       </tbody>
     </Table>
   );
 };
-
-export default MeetingList;
+export default RouteList;

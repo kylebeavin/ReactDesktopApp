@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { IAccount, fetchAccounts } from '../../actions';
-import { StoreState } from '../../reducers';
+import { IAccount, fetchAccounts } from '../../redux/actions';
+import { StoreState } from '../../redux/reducers';
 
 // //Bootstap Imports
 import Form from 'react-bootstrap/Form';
