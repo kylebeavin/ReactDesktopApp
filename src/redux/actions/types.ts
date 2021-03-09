@@ -1,5 +1,10 @@
 export enum ActionTypes {
-  userLogin,
+  registerSuccess,
+  registerFail,
+  userLoaded,
+  authError,
+  userLoginSuccess,
+  userLoginFail,
   fetchAccounts,
   postNewAccount,
   fetchMeetings,
@@ -8,4 +13,6 @@ export enum ActionTypes {
   postNewRoute,
   fetchTrucks,
   postNewTruck,
+  fetchWorkOrders,
+  postNewWorkOrder,
 }

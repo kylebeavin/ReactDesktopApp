@@ -29,9 +29,9 @@ export const MainNav = () => {
               CRM
             </Button>
           </Link>
-          <Link to="/services">
+          <Link to="/orders">
             <Button className="NavButton" variant="outline-primary" size="sm">
-              Services
+              Orders
             </Button>
           </Link>
           <Link to="/routes">

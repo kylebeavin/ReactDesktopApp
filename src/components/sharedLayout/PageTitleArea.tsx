@@ -6,7 +6,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BsQuestionCircleFill } from 'react-icons/bs';
-import NewAccountForm from '../CRM/NewAccountForm';
+// import NewAccountForm from '../CRM/NewAccountForm';
+import NewOrderForm from '../Orders/WorkOrders/NewOrderForm';
+// import AddNewButton from './AddNewButton';
 // import Modal from 'react-bootstrap/Modal';
 
 interface ITitle {
@@ -30,7 +32,9 @@ const PageTitleArea = ({ title }: ITitle) => {
         </Col>
         <Col md={2}>
           {/*Includes New Account Button*/}
-          <NewAccountForm />
+          <NewOrderForm />
+          {/* <NewAccountForm /> */}
+          {/* <AddNewButton /> */}
         </Col>
       </Row>
       <hr></hr>
