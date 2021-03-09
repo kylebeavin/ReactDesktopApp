@@ -1,9 +1,8 @@
 import React from 'react';
-import AccountList from '../CRM/AccountList';
+import WorkOrderList from './WorkOrders/WorkOrderList';
 import AccountListButtons from '../CRM/AccountListButtons';
 import MeetingListButtons from '../CRM/MeetingListButtons';
 import MeetingList from '../CRM/MeetingList';
-
 //Bootstrap Imports
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,10 +12,10 @@ import Tab from 'react-bootstrap/Tab';
 //Icons
 import { MdList } from 'react-icons/md';
 
-const ServicesTabView = () => {
+const OrdersTabView = () => {
   const ListTabTitle = (
     <React.Fragment>
-      <MdList></MdList> List
+      <MdList></MdList> Work Orders
     </React.Fragment>
   );
 
@@ -28,7 +27,7 @@ const ServicesTabView = () => {
             <AccountListButtons />
           </Col>
           <Col md={10}>
-            <AccountList />
+            <WorkOrderList />
           </Col>
         </Row>
       </Tab>
@@ -51,4 +50,4 @@ const ServicesTabView = () => {
   );
 };
 
-export default ServicesTabView;
+export default OrdersTabView;

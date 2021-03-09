@@ -1,11 +1,11 @@
-import { IAccount, AccountAction, ActionTypes } from '../actions';
+import { IWorkOrder, WorkOrderAction, ActionTypes } from '../actions';
 
-export const accountsReducer = (
-  state: IAccount[] = [],
-  action: AccountAction
+export const workOrdersReducer = (
+  state: IWorkOrder[] = [],
+  action: WorkOrderAction
 ) => {
   switch (action.type) {
-    case ActionTypes.fetchAccounts: {
+    case ActionTypes.fetchWorkOrders: {
       return action.payload;
     }
     // case ActionTypes.postNewAccount: {

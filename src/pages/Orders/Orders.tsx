@@ -1,19 +1,19 @@
 import React from 'react';
 import { MainNav } from '../../components/sharedLayout/Nav';
 import PageTitleArea from '../../components/sharedLayout/PageTitleArea';
-import ServicesTabView from '../../components/Services/ServicesTabView';
+import OrdersTabView from '../../components/Orders/OrdersTabView';
 
 //Bootstrap Imports
 import Container from 'react-bootstrap/Container';
 
-const Services = () => {
+const Orders = () => {
   return (
     <Container fluid className="containerFluid">
       <MainNav />
-      <PageTitleArea title="Services" />
-      <ServicesTabView />
+      <PageTitleArea title="Orders" />
+      <OrdersTabView />
     </Container>
   );
 };
 
-export default Services;
+export default Orders;
