@@ -1,8 +1,9 @@
 import React from 'react';
 import WorkOrderList from './WorkOrders/WorkOrderList';
 import AccountListButtons from '../CRM/AccountListButtons';
-import MeetingListButtons from '../CRM/MeetingListButtons';
+// import MeetingListButtons from '../CRM/MeetingListButtons';
 import MeetingList from '../CRM/MeetingList';
+import { CalendarView } from '../CRM/CalendarView';
 //Bootstrap Imports
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -31,13 +32,13 @@ const OrdersTabView = () => {
           </Col>
         </Row>
       </Tab>
-      <Tab eventKey="meetings" title="Services">
+      <Tab eventKey="meetings" title="Calendar">
         <Row>
-          <Col className="NoPadding" md={2}>
-            <MeetingListButtons />
-          </Col>
-          <Col md={10}>
+          <Col className="NoPadding" md={4}>
             <MeetingList />
+          </Col>
+          <Col md={8}>
+            <CalendarView />
           </Col>
         </Row>
       </Tab>

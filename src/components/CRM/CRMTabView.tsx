@@ -2,7 +2,8 @@ import React from 'react';
 import AccountList from './AccountList';
 import AccountListButtons from './AccountListButtons';
 import MeetingListButtons from './MeetingListButtons';
-import MeetingList from './MeetingList';
+import { CalendarView } from './CalendarView';
+// import MeetingList from './MeetingList';
 
 //Bootstrap Imports
 import Row from 'react-bootstrap/Row';
@@ -34,11 +35,12 @@ const CRMTabView = () => {
       </Tab>
       <Tab eventKey="meetings" title="Meetings">
         <Row>
-          <Col className="NoPadding" md={2}>
+          <Col className="NoPadding" md={4}>
             <MeetingListButtons />
           </Col>
-          <Col md={10}>
-            <MeetingList />
+          <Col md={8}>
+            <CalendarView />
+            {/* <MeetingList /> */}
           </Col>
         </Row>
       </Tab>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './routes.css';
 import { MainNav } from '../../sharedLayout/Nav';
-import PageTitleArea from '../../sharedLayout/PageTitleArea';
+import PageTitleAreaOrders from '../../sharedLayout/PageTitleAreaOrders';
 import RoutesTabView from '../RoutesTabView';
 
 //Bootstrap Imports
@@ -11,7 +11,7 @@ const TruckDetailLayout = () => {
   return (
     <Container fluid className="containerFluid">
       <MainNav />
-      <PageTitleArea title="Routes" />
+      <PageTitleAreaOrders title="Routes" />
       <RoutesTabView />
     </Container>
   );

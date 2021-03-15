@@ -1,21 +1,18 @@
 import React from 'react';
-import Calendar from 'react-calendar';
-
-//Styles
-// import 'react-calendar/dist/Calendar.css';
+import { connect } from 'react-redux';
+import { IMeeting, fetchMeetings } from '../../redux/actions';
+import { StoreState } from '../../redux/reducers';
 
 //Bootstrap Imports
-// import Table from 'react-bootstrap/Table';
-// import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
 
+const _CalendarView = () => {
+  return <Container>Calendar coming soon</Container>;
+};
 
-const CalendarView = () => {
-
-    return (
-        <section>
-            <Calendar />
-        </section>
-    )
-}
-
-export default CalendarView;
+const mapStateTopProps = (state: StoreState): { meetings: IMeeting[] } => {
+  return { meetings: state.meetings };
+};
+export const CalendarView = connect(mapStateTopProps, { fetchMeetings })(
+  _CalendarView
+);

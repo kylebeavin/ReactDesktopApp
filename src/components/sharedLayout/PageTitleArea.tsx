@@ -6,16 +6,30 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BsQuestionCircleFill } from 'react-icons/bs';
-// import NewAccountForm from '../CRM/NewAccountForm';
+import NewAccountForm from '../CRM/NewAccountForm';
 import NewOrderForm from '../Orders/WorkOrders/NewOrderForm';
-// import AddNewButton from './AddNewButton';
+import NewRouteForm from '../Routes/NewRouteForm';
+import NewInvoiceForm from '../Invoices/NewInvoiceForm';
 // import Modal from 'react-bootstrap/Modal';
 
 interface ITitle {
   title: string;
 }
 
-const PageTitleArea = ({ title }: ITitle) => {
+const PageTitleAreaOrders = ({ title }: ITitle) => {
+  const NewButton = () => {
+    if (title === 'Dashboard') {
+      return <NewAccountForm />;
+    } else if (title === 'CRM') {
+      return <NewAccountForm />;
+    } else if (title === 'Orders') {
+      return <NewOrderForm />;
+    } else if (title === 'Routes') {
+      return <NewRouteForm />;
+    } else if (title === 'Invoices') {
+      return <NewInvoiceForm />;
+    }
+  };
   return (
     <Container fluid className="containerFluid">
       <Row className="noMarginRight">
@@ -30,16 +44,11 @@ const PageTitleArea = ({ title }: ITitle) => {
         <Col md={7}>
           <SearchInput />
         </Col>
-        <Col md={2}>
-          {/*Includes New Account Button*/}
-          <NewOrderForm />
-          {/* <NewAccountForm /> */}
-          {/* <AddNewButton /> */}
-        </Col>
+        <Col md={2}>{NewButton()}</Col>
       </Row>
       <hr></hr>
     </Container>
   );
 };
 
-export default PageTitleArea;
+export default PageTitleAreaOrders;
