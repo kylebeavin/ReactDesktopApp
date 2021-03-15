@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { IWorkOrder, fetchWorkOrders } from '../../../redux/actions';
 import { StoreState } from '../../../redux/reducers';
-import { getDateStringsFromDate } from '../../../utils/Helpers';
+// import { getDateStringsFromDate } from '../../../utils/Helpers';
 
 // //Bootstap Imports
 import Form from 'react-bootstrap/Form';
@@ -31,12 +31,14 @@ class _WorkOrder extends React.Component<IWorkOrderProps> {
           <td>{workOrder.monthly_rate}</td>
           <td>{workOrder.term_date}</td>
           <td>
-            {getDateStringsFromDate(workOrder.start_date).date}{' '}
-            {getDateStringsFromDate(workOrder.start_date).time}
+            {workOrder.start_date}
+            {/* {getDateStringsFromDate(workOrder.start_date).date}{' '}
+            {getDateStringsFromDate(workOrder.start_date).time} */}
           </td>
           <td>
-            {getDateStringsFromDate(workOrder.end_date).date}{' '}
-            {getDateStringsFromDate(workOrder.end_date).time}
+            {workOrder.end_date}
+            {/* {getDateStringsFromDate(workOrder.end_date).date}{' '}
+            {getDateStringsFromDate(workOrder.end_date).time} */}
           </td>
         </tr>
       );

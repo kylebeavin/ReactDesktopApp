@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import baseURL from '../../api/BaseInstance';
+import DatePicker from 'react-datepicker';
 
 //Bootstrap Imports
 import Container from 'react-bootstrap/Container';
@@ -11,19 +12,20 @@ import Col from 'react-bootstrap/Col';
 
 //New Account Form
 
-const NewAccountForm = () => {
-  const [showAccount, setShowAccount] = useState(false);
-  const [accountFormData, setAccountFormData] = useState({});
-
-  const handleShowAccount = () => setShowAccount(true);
-  const handleCloseAccount = () => setShowAccount(false);
+const NewInvoiceForm = () => {
+  const [showOrder, setShowOrder] = useState(false);
+  const [orderFormData, setOrderFormData] = useState({});
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const handleShowOrder = () => setShowOrder(true);
+  const handleCloseOrder = () => setShowOrder(false);
 
   const handleChange = (e: any) => {
-    setAccountFormData({ ...accountFormData, [e.target.name]: e.target.value });
+    setOrderFormData({ ...orderFormData, [e.target.name]: e.target.value });
   };
-  const addAccount = async () => {
+  const addOrder = async () => {
     const response = await baseURL
-      .post('/accounts', accountFormData, {
+      .post('/order', orderFormData, {
         headers: {
           'x-access-token': process.env.REACT_APP_ACCESS_TOKEN,
         },
@@ -32,7 +34,7 @@ const NewAccountForm = () => {
         console.log('Error: ', err);
       });
     if (response) {
-      handleCloseAccount();
+      handleCloseOrder();
     }
   };
 
@@ -42,17 +44,17 @@ const NewAccountForm = () => {
         className="CreateNewButton"
         variant="success"
         size="lg"
-        onClick={handleShowAccount}
+        onClick={handleShowOrder}
       >
-        New Account
+        New Invoice
       </Button>
       <Modal
-        show={showAccount}
-        onHide={handleCloseAccount}
+        show={showOrder}
+        onHide={handleCloseOrder}
         className="accountModal"
       >
         <Modal.Header closeButton className="newAccountHeader">
-          <Modal.Title>New Account</Modal.Title>
+          <Modal.Title>New Invoice</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -64,12 +66,22 @@ const NewAccountForm = () => {
             <Row>
               <Col xs={12} md={8}>
                 <Form.Control
+                  name="account_id"
+                  as="select"
                   onChange={handleChange}
-                  type="text"
-                  name="account_name"
-                  placeholder="Account Name"
-                  className=""
-                />
+                  custom
+                >
+                  <option>Choose...</option>
+                  <option value="6011a87cf556150022792a53">
+                    Whole Foods - Carmel
+                  </option>
+                  <option value="6011cbb8f556150022792a58">
+                    Westpark at Springmill
+                  </option>
+                  <option value="60131757ad6c98002233b14f">
+                    Hamilton Wood
+                  </option>
+                </Form.Control>
               </Col>
             </Row>
             <Row>
@@ -79,28 +91,29 @@ const NewAccountForm = () => {
             </Row>
             <Row>
               <Col xs={12} md={8}>
-                <Form.Label>Stage</Form.Label>
+                <Form.Label>Order Status</Form.Label>
               </Col>
             </Row>
             <Row>
               <Col xs={12} md={8}>
                 <Form.Control
-                  name="stage"
+                  name="order_status"
                   as="select"
+                  placeholder="Choose..."
                   onChange={handleChange}
                   custom
                 >
-                  <option>Choose...</option>
-                  <option>Prospect</option>
-                  <option>Lead</option>
-                  <option>Account</option>
+                  <option>Not Started</option>
+                  <option>In Progress</option>
+                  <option>Completed</option>
+                  <option>Cancelled</option>
                 </Form.Control>
               </Col>
             </Row>
             <br />
             <Row>
               <Col xs={12} md={8}>
-                <Form.Label>Address Street</Form.Label>
+                <Form.Label>Demand Rate</Form.Label>
               </Col>
             </Row>
             <Row>
@@ -108,8 +121,8 @@ const NewAccountForm = () => {
                 <Form.Control
                   onChange={handleChange}
                   type="text"
-                  name="address_street"
-                  placeholder="1234 SmashTrash Ln"
+                  name="demand_rate"
+                  placeholder="500.00"
                   className=""
                 />
               </Col>
@@ -117,7 +130,7 @@ const NewAccountForm = () => {
             <br />
             <Row>
               <Col xs={12} md={8}>
-                <Form.Label>Address City</Form.Label>
+                <Form.Label>Monthly Rate</Form.Label>
               </Col>
             </Row>
             <Row>
@@ -126,8 +139,8 @@ const NewAccountForm = () => {
                   // value={values.name || ""}
                   onChange={handleChange}
                   type="text"
-                  name="address_city"
-                  placeholder="Indianapolis"
+                  name="monthly_rate"
+                  placeholder="500.00"
                   className=""
                 />
               </Col>
@@ -135,28 +148,7 @@ const NewAccountForm = () => {
             <br />
             <Row>
               <Col xs={12} md={8}>
-                <Form.Label>Address State</Form.Label>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={8}>
-                <Form.Control
-                  name="address_state"
-                  as="select"
-                  onChange={handleChange}
-                  custom
-                >
-                  <option>Choose...</option>
-                  <option>AL</option>
-                  <option>AK</option>
-                  <option>IN</option>
-                </Form.Control>
-              </Col>
-            </Row>
-            <br />
-            <Row>
-              <Col xs={12} md={8}>
-                <Form.Label>Address Zip</Form.Label>
+                <Form.Label>Term</Form.Label>
               </Col>
             </Row>
             <Row>
@@ -165,8 +157,8 @@ const NewAccountForm = () => {
                   // value={values.name || ""}
                   onChange={handleChange}
                   type="text"
-                  name="address_zip"
-                  placeholder="123456"
+                  name="term_date"
+                  placeholder="12"
                   className=""
                 />
               </Col>
@@ -174,24 +166,75 @@ const NewAccountForm = () => {
             <br />
             <Row>
               <Col xs={12} md={8}>
-                <Form.Label>Map Location (Lat,Long)</Form.Label>
+                <Form.Label>Start Date</Form.Label>
               </Col>
             </Row>
             <Row>
               <Col xs={12} md={8}>
-                <Form.Control
+                <DatePicker
+                  name="start_date"
+                  selected={startDate}
+                  onChange={(date: any) => setStartDate(date)}
+                  todayButton="Today"
+                  isClearable
+                />
+                {/* <Form.Control
+                  // value={values.name || ""}
+                  onChange={handleChange}
+                  type="text"
+                  name="start_date"
+                  placeholder="4/16/2021"
+                  className=""
+                >
+                  {startDate}
+                </Form.Control> */}
+              </Col>
+            </Row>
+            <br />
+            <Row>
+              <Col xs={12} md={8}>
+                <Form.Label>End Date</Form.Label>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={8}>
+                <DatePicker
+                  name="end_date"
+                  selected={endDate}
+                  onChange={(date: any) => setEndDate(date)}
+                  todayButton="Today"
+                  isClearable
+                />
+
+                {/* <Form.Control
                   onChange={handleChange}
                   type="text"
                   name="geo_location"
                   placeholder="00.00,00.00"
                   className=""
+                /> */}
+              </Col>
+            </Row>
+            <br />
+            <Row>
+              <Col xs={12} md={8}>
+                <Form.Label>Terms &amp; Conditions</Form.Label>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={8}>
+                <Form.File
+                  name="url"
+                  id="custom-file"
+                  label="Custom file input"
+                  custom
                 />
               </Col>
             </Row>
             <br />
             <Row>
               <Col xs={12} md={8}>
-                <Form.Label>Email</Form.Label>
+                <Form.Label>Notes</Form.Label>
               </Col>
             </Row>
             <Row>
@@ -200,56 +243,10 @@ const NewAccountForm = () => {
                   // value={values.name || ""}
                   onChange={handleChange}
                   type="text"
-                  name="email"
-                  placeholder="user@smashmytrash.com"
-                  className=""
-                />
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={8}>
-                <Form.Label>Group ID</Form.Label>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={8}>
-                <Form.Control
-                  onChange={handleChange}
-                  name="group_id"
-                  as="input"
-                  placeholder="groupID"
-                  className=""
-                />
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={8}>
-                <Form.Label>Owner ID</Form.Label>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={8}>
-                <Form.Control
-                  onChange={handleChange}
-                  name="owner_id"
-                  as="input"
-                  placeholder="ownerID"
-                  className=""
-                />
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={8}>
-                <Form.Label>Owner Name</Form.Label>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={8}>
-                <Form.Control
-                  onChange={handleChange}
-                  name="owner_name"
-                  as="input"
-                  placeholder="ownerName"
+                  name="notes"
+                  placeholder="Leave notes here.."
+                  as="textarea"
+                  rows={3}
                   className=""
                 />
               </Col>
@@ -257,10 +254,10 @@ const NewAccountForm = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseAccount}>
+          <Button variant="secondary" onClick={handleCloseOrder}>
             Close
           </Button>
-          <Button variant="primary" onClick={addAccount}>
+          <Button variant="primary" onClick={addOrder}>
             Save Changes
           </Button>
         </Modal.Footer>
@@ -269,4 +266,4 @@ const NewAccountForm = () => {
   );
 };
 
-export default NewAccountForm;
+export default NewInvoiceForm;

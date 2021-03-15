@@ -1,0 +1,47 @@
+.meetingList {
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #e3e3e3;
+  background-color: #e3e3e3;
+}
+
+.meetingCard {
+  width: 80%;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 4px solid #b3b3b3;
+  box-shadow: 5px 10px 20px #e3e3e3 inset;
+}
+
+.meetingCard:hover {
+  border: 4px solid #66c2ff;
+  box-shadow: 5px 10px 20px #66c2ff inset;
+  cursor: pointer;
+}
+
+.meetingCard h3 {
+  font-size: 2rem;
+}
+
+.meetingCard h4 {
+  font-size: 1.3rem;
+}
+
+.meetingCard p {
+  font-size: 0.8rem;
+}
+
+.meetingCard button {
+  width: 15%;
+  border-radius: 15%;
+  background-color: #003069;
+  border: 1px solid #003069;
+  color: #ffffff;
+}
+
+.meetingCard button:hover {
+  background-color: #005ccc;
+}
